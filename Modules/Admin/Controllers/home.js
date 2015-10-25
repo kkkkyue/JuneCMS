@@ -3,9 +3,10 @@
 module.exports = {
     index: function*(next)
     {
-        yield this.render('admin/Index');
+        var ctx = this;
+        yield this.render('admin/Index',{layout:"admin/template"});
     },
-    user: function*(next) {
-        
+    login: function*(next) {
+        yield this.render('admin/login', { layout: "admin/template" });
     }
 } 

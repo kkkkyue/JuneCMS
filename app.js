@@ -4,7 +4,7 @@ var render = require('koa-ejs');
 var serve = require('koa-static');
 var bodyParser = require('koa-bodyparser');
 var path = require('path');
-var router = require('./Router.js');
+var Module = require('./Module.js');
 var app = koa();
 
 //模板设置
@@ -27,10 +27,18 @@ app.use(bodyParser());
 //配置静态服务器
 app.use(serve('public'));
 
-//应用路由配置
-router.routes(app);
+//应用模块配置
+Module.init(app);
 
 
+// 设置Sessions
+var session = require('koa-session')
+app.keys = ['secret']
+app.use(session(app))
+
+var passport = require('koa-passport')
+app.use(passport.initialize())
+app.use(passport.session())
 
 
 if (process.env.NODE_ENV === 'test') {

@@ -3,9 +3,9 @@
 module.exports = {
     index: function*(next)
     {
-        yield this.render('admin/Index');
+        yield this.render('admin/Index', {layout:"admin/template"});
     },
-    user: function*(next) {
+    login: function*(next) {
         
     }
 } 
