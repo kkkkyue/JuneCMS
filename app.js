@@ -32,7 +32,7 @@ Module.init(app);
 
 
 // 设置Sessions
-var session = require('koa-session')
+var session = require('koa-generic-session');
 app.keys = ['secret']
 app.use(session(app))
 
