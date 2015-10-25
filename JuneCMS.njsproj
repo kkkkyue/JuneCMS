@@ -31,9 +31,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="Modules\Admin\auth.js" />
+    <Compile Include="config.js" />
+    <Compile Include="auth.js" />
     <Compile Include="Modules\Admin\config.js" />
     <Compile Include="Modules\Admin\Controllers\home.js" />
+    <Compile Include="Modules\Auth\config.js" />
+    <Compile Include="Modules\Auth\Controllers\home.js" />
+    <Compile Include="Modules\Auth\Models\passport.js" />
+    <Compile Include="Modules\Auth\Models\user.js" />
     <Compile Include="Modules\Home\config.js" />
     <Compile Include="Modules\Home\Controllers\home.js" />
     <Compile Include="Module.js" />
@@ -87,8 +92,11 @@
     <Folder Include="Modules\Admin\Controllers\" />
     <Folder Include="Modules\" />
     <Folder Include="Modules\Admin\" />
+    <Folder Include="Modules\Auth\Controllers\" />
+    <Folder Include="Modules\Auth\Models\" />
     <Folder Include="Modules\Home\" />
     <Folder Include="Modules\Home\Controllers\" />
+    <Folder Include="Modules\Auth\" />
     <Folder Include="public\" />
     <Folder Include="public\assets\" />
     <Folder Include="public\assets\css\" />

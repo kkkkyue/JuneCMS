@@ -3,8 +3,16 @@ var koa = require('koa');
 var render = require('koa-ejs');
 var serve = require('koa-static');
 var bodyParser = require('koa-bodyparser');
+var session = require('koa-generic-session');
+var mongoose = require('mongoose');
+var mongooseStore = require('koa-session-mongoose');
 var path = require('path');
 var Module = require('./Module.js');
+var config = require('./config.js');
+
+//连接数据库
+mongoose.connect(config.Mongodb);
+
 var app = koa();
 
 //模板设置
@@ -32,9 +40,8 @@ Module.init(app);
 
 
 // 设置Sessions
-var session = require('koa-generic-session');
 app.keys = ['secret']
-app.use(session(app))
+app.use(session(app));
 
 var passport = require('koa-passport')
 app.use(passport.initialize())

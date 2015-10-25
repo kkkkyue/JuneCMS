@@ -2,7 +2,7 @@
 var route = require('koa-router')({
     prefix: '/admin'
 });
-var auth=require('./auth');
+var auth=require('../../auth.js');
 var passport = require('koa-passport');
 var home= require('./Controllers/home.js');
 

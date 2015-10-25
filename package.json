@@ -25,7 +25,7 @@
     "koa-session-mongoose": "^0.5.2",
     "koa-static": "^1.5.1",
     "koa-validate": "^0.2.11",
-    "orm": "^2.1.27",
+    "mongoose": "^4.2.2",
     "passport-local": "^1.0.0"
   }
 }
