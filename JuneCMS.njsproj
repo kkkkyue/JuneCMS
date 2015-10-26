@@ -22,7 +22,7 @@
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <NodejsPort>3000</NodejsPort>
     <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
@@ -38,6 +38,7 @@
     <Compile Include="auth.js" />
     <Compile Include="Modules\Admin\config.js" />
     <Compile Include="Modules\Admin\Controllers\home.js" />
+    <Compile Include="Modules\Auth\auth.js" />
     <Compile Include="Modules\Auth\config.js" />
     <Compile Include="Modules\Auth\Controllers\home.js" />
     <Compile Include="Modules\Auth\Models\passport.js" />
@@ -45,6 +46,10 @@
     <Compile Include="Modules\Home\config.js" />
     <Compile Include="Modules\Home\Controllers\home.js" />
     <Compile Include="Module.js" />
+    <Compile Include="public\assets\js\jquery\jquery.min.js" />
+    <Compile Include="public\assets\js\JSXTransformer.js" />
+    <Compile Include="public\assets\js\react.min.js" />
+    <Compile Include="public\assets\js\sea.js" />
     <Content Include="public\assets\js\webuploader.js" />
     <Content Include="public\assets\css\webuploader.css" />
     <Content Include="public\assets\flash\Uploader.swf" />
@@ -108,6 +113,8 @@
     <Folder Include="public\assets\i\" />
     <Folder Include="public\assets\i\examples\" />
     <Folder Include="public\assets\js\" />
+    <Folder Include="public\assets\js\jquery\" />
+    <Folder Include="public\sea-modules\" />
     <Folder Include="views\" />
     <Folder Include="views\Admin\" />
   </ItemGroup>

@@ -25,6 +25,7 @@ module.exports = {
              _this.status = 401;
            } else {
              yield _this.login(user);
+             //this.redirect(this.session["return"]);
              _this.body = { user: user };
            }
          }).call(this);

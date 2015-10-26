@@ -6,17 +6,13 @@ var auth=require('../../auth.js');
 var passport = require('koa-passport');
 var home= require('./Controllers/home.js');
 
-module.exports = {
-    name: "admin",
-    init: function (app){
-        route.get('/', auth.AllowLogin, home.index);
-        //管理员登入
-        route.get('/login', home.login);
+module.exports = function (app) {
+    route.get('/', auth.AllowLogin ,home.index);
 
-        route.post('/login', passport.authenticate('local', {
-            successRedirect: '/admin',
-            failureRedirect: '/login'
-        }));
-        app.use(route.routes());
+    app.use(route.routes());
+
+    return function*(next){
+        yield next;
     }
+
 }

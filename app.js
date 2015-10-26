@@ -3,6 +3,7 @@ var koa = require('koa');
 var render = require('koa-swig');// require('koa-ejs');
 var serve = require('koa-static');
 var bodyParser = require('koa-bodyparser');
+var error = require('koa-error');
 var session = require('koa-generic-session');
 var mongoose = require('mongoose');
 var mongooseStore = require('koa-session-mongoose');
@@ -15,20 +16,19 @@ mongoose.connect(config.Mongodb);
 
 var app = koa();
 
+//var ctx = this;
+
+app.context.AllowLogin = function*(next) {
+    yield next;
+};
+
+
 //模板设置
 var filters = {
     format: function (time) {
         return time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate();
     }
 };
-render(app, {
-    root: path.join(__dirname, 'views'),
-    layout: 'template',
-    viewExt: 'html',
-    cache: false,
-    debug: true,
-    filters: filters
-});
 
 app.context.render = render({
     root: path.join(__dirname, 'views'),
@@ -53,6 +53,9 @@ app.use(session(app));
 var passport = require('koa-passport')
 app.use(passport.initialize())
 app.use(passport.session())
+
+//设置错误提示
+app.use(error());
 
 
 if (process.env.NODE_ENV === 'test') {

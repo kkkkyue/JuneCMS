@@ -17,7 +17,8 @@ var init = function (app) {
                         if (stats.isDirectory()) {
                             var tmpConfigPath = tmpPath + '/' + "config.js";
                             var module = require(tmpConfigPath);
-                            module.init(app);
+                            //module.init(app);
+                            app.use(module(app));
 
                         } else {
 

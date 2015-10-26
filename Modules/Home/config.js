@@ -5,10 +5,15 @@ var route = require('koa-router')({
 
 var home= require('./Controllers/home.js');
 
-module.exports = {
-    name: "home",
-    init: function (app){
-        route.get('/', home.index);
-        app.use(route.routes());
+module.exports = function (app) {
+    name: "home";
+    
+    route.get('/', home.index);
+
+    app.use(route.routes());
+
+    return function*(next) {
+        yield next;
     }
+
 }
