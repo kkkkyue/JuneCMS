@@ -27,7 +27,7 @@ module.exports = {
         if (!this.passport.user) {
             yield next;
             this.session["return"] = this.url;
-            this.redirect('/admin/login?return='+this.url);
+            this.redirect('/auth/login?callback='+this.url);
         }
         else {
             yield next;

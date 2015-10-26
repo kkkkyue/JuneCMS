@@ -1,6 +1,6 @@
 ﻿"use strict"
 var koa = require('koa');
-var render = require('koa-ejs');
+var render = require('koa-swig');// require('koa-ejs');
 var serve = require('koa-static');
 var bodyParser = require('koa-bodyparser');
 var session = require('koa-generic-session');
@@ -28,6 +28,13 @@ render(app, {
     cache: false,
     debug: true,
     filters: filters
+});
+
+app.context.render = render({
+    root: path.join(__dirname, 'views'),
+    autoescape: true,
+    cache: 'memory', // disable, set to false
+    ext: 'html'
 });
 
 app.use(bodyParser());

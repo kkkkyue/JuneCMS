@@ -17,4 +17,4 @@ passportSchema.methods.hashPassword = function (cb) {
 var Passport = mongoose.model('Passport', passportSchema);
 
 
-module.exports.Passport = Passport;
+module.exports = Passport;

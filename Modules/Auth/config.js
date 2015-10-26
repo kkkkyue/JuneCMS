@@ -13,10 +13,7 @@ module.exports = {
         //管理员登入
         route.get('/login', home.login);
         
-        route.post('/login', passport.authenticate('local', {
-            successRedirect: '/admin',
-            failureRedirect: '/login'
-        }));
+        route.post('/login', home.postlogin);
         app.use(route.routes());
     }
 }

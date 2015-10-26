@@ -24,7 +24,9 @@
     "koa-router": "^5.2.3",
     "koa-session-mongoose": "^0.5.2",
     "koa-static": "^1.5.1",
+    "koa-swig": "^2.1.0",
     "koa-validate": "^0.2.11",
+    "koa.io": "0.0.3",
     "mongoose": "^4.2.2",
     "passport-local": "^1.0.0"
   }

@@ -1,3 +1,6 @@
+{% extends 'template.html' %}
+{% block title %}后台管理{% endblock %}
+{% block body %}
 <header class="am-topbar admin-header">
     <div class="am-topbar-brand">
         <strong>Amaze UI</strong> <small>后台管理模板</small>
@@ -21,7 +24,7 @@
     </div>
 </header>
 <div class="am-cf admin-main">
-    <% include menu.html %>
+    {% include 'menu.html' %}
     <!-- content start -->
     <div class="admin-content">
         <div class="am-cf am-padding">
@@ -286,3 +289,4 @@
     <!-- content end -->
 </div>
 <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+{% endblock %}
