@@ -18,10 +18,6 @@ var app = koa();
 
 //var ctx = this;
 
-app.context.AllowLogin = function*(next) {
-    yield next;
-};
-
 
 //模板设置
 var filters = {
@@ -61,7 +57,7 @@ app.use(error());
 if (process.env.NODE_ENV === 'test') {
     module.exports = app.callback();
 } else {
-    app.listen(3000);
+    app.listen(config.Port);
     console.log('open http://localhost:3000')
 }
 
