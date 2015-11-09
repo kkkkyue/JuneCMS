@@ -10,6 +10,8 @@ var mongooseStore = require('koa-session-mongoose');
 var path = require('path');
 var Module = require('./Module.js');
 var config = require('./config.js');
+var socket = require('./socket.js');
+
 
 //连接数据库
 mongoose.connect(config.Mongodb);
@@ -41,23 +43,31 @@ app.use(serve('public'));
 //应用模块配置
 Module.init(app);
 
-
+var sessionStore= mongooseStore.create()
 // 设置Sessions
 app.keys = ['secret']
-app.use(session(app));
+app.use(session({
+    store: sessionStore ,
+    key: 'koa.sid',
+    secret:'secret'
+}));
 
 var passport = require('koa-passport')
 app.use(passport.initialize())
+
 app.use(passport.session())
 
 //设置错误提示
 app.use(error());
 
+//配置SOCKET.IO
+socket(app, sessionStore);
+
 
 if (process.env.NODE_ENV === 'test') {
     module.exports = app.callback();
 } else {
-    app.listen(config.Port);
+    app.server.listen(config.Port);
     console.log('open http://localhost:3000')
 }
 
