@@ -51,6 +51,7 @@
     <Compile Include="public\assets\js\JSXTransformer.js" />
     <Compile Include="public\assets\js\react.min.js" />
     <Compile Include="public\assets\js\sea.js" />
+    <Compile Include="socket.js" />
     <Compile Include="public\assets\js\webuploader.js" />
     <Content Include="public\assets\css\webuploader.css" />
     <Content Include="public\assets\flash\Uploader.swf" />
