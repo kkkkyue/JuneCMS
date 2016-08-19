@@ -14,7 +14,7 @@ var socket = require('./socket.js');
 
 
 //连接数据库
-mongoose.connect(config.Mongodb);
+//mongoose.connect(config.Mongodb);
 
 var app = koa();
 
